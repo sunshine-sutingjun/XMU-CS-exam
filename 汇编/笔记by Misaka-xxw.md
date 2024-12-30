@@ -1,4 +1,4 @@
-# 汇编语言(实验版v1.0)
+# 汇编语言(实验+笔试版v2.0)
 
 [toc]
 <style>
@@ -9,6 +9,18 @@ h1 {
     text-align: center;
 }
 </style>
+
+---
+
+## 计科期末考试出题
+
+1. 读程序题
+2. 程序填空题
+3. 写程序题：计算
+4. 写程序题：循环分支
+5. 写程序题：中断
+
+---
 
 ## 第3章 80x86的指令系统和寻址方式
 
@@ -480,6 +492,144 @@ Count_Reg!=0 && zf=0
 ###### call
 
 ###### ret
+
+## 第8章 输入输出程序设计
+
+（面向考试复习）
+
+### 8.2 程序直接控制I/O方式(p283)
+
+#### 8.2.2 I/O指令(p284)
+
+**in和out**
+
+in 完成I/O -> CPU的信息传送
+out完成CPU -> I/O的信息传送
+
+0\~0ffh，即0\~255端口可以这样写：
+
+```asm
+;port是端口地址，一个8位的立即数
+in al,port   ;(al)<-(port)
+in ax,port   ;(ax)<-(port+1,port)
+
+out port,al  ;(port)<-(al)
+out port,ax  ;(port+1,port)<-(ax)
+```
+
+0\~0ffffh，即0\~255端口可以这样写（当端口>0ffh时，必须这样写！）
+
+```asm
+;dx里存了端口地址
+in al,dx   ;(al)<-((dx))
+in ax,dx   ;(ax)<-((dx)+1,(dx))
+
+out dx,al  ;((dx))<-(al)
+out dx,ax  ;((dx)+1,(dx))<-(ax)
+```
+
+<span style="color:red">注意端口是否带“h”，例如126h是大于十进制的255的，就得用dx</span>
+
+**用法示例**
+
+1. 把一个字，从端口地址28和29，传到存储器的字单元data_word中
+
+    ```asm
+    in  ax,28h
+    mov data_word,ax
+    ```
+
+2. 检测端口地址27h的第2位是否为1，如果1就是转到错误处理
+    注意这里的第几位是从右到左从<span style="color:red">0</span>数起
+    因为```test```就是只改变flags的and，所以用来查1
+
+    ```asm
+    in   al,27h
+    test al,00000100b
+    jnz  error
+    ```
+
+3. 将端口地址为126h的命令寄存器，第7位置1
+
+    ```asm
+    mov dx,126h
+    in  al,dx
+    or  al,80h  ;80h=10000000b
+    out dx,al
+    ```
+
+### 8.3 中断传送方式
+
+#### 8.3.1 8086的中断分类(p290)
+
+**中断标志位if**
+
+```sti``` 设置中断允许位(if=1)set interupt flag
+```cli``` 清除中断允许位(if=0)clear interupt flag
+
+**中断屏蔽寄存器（端口21h）**
+
+|7|6|5|4|3|2|1|0|
+|-|-|-|-|-|-|-|-|
+|打印机|软盘|硬盘|串行通信口1|串行通信口2|保留|键盘|定时器|
+
+**中断屏蔽寄存器（端口20h）**
+
+|7|6|5|4|3|2|1|0|
+|-|-|-|-|-|-|-|-|
+|R|SL|EOI|0|0|L2|L1|L0|
+
+#### 8.3.2 中断向量表(p293)
+
+|功能|预置|执行|返回|
+|---|---|---|---|
+|设置中断向量|ah=25h<br/>al=中断类型号<br/>ds:dx=中断向量|int 21h||
+|取中断向量|ah=35h<br/>al=中断类型号|int 21h|es:bx=中断向量|
+
+中断操作：
+
+1. 取中断类型号
+2. 计算中断向量地址
+3. 取中断向量，偏移地址送IP，段地址送CS
+4. 转入中断处理程序
+5. 中断返回到int的下一条指令
+
+**使用dos功能调用存取中断向量，模板**
+
+```asm
+;保存原来的中断向量
+mov  al,n   ;中断类型号
+mov  ah,35h ;取中断向量到es:bx
+int  21h
+push es
+push bx
+;设置新的中断向量
+push ds
+mov  ax,seg myfunc
+mov  ds,ax
+mov  dx,offset myfunc
+mov  al,n
+mov  al,25h
+int  21h
+pop  ds
+;重新设置原来的中断向量
+pop  dx    ;原来的bx
+pop  ds    ;原来的es
+mov  al,n
+mov  ah,25h
+int  21h
+ret
+;...
+myfunc proc near
+    ;...
+    iret
+myfunc endp
+;...
+```
+
+<span style="color:red">p300的程序可能会被改成考试题</span>
+
+---
 
 ## 堆栈情况
 
