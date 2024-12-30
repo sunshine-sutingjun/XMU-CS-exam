@@ -579,6 +579,59 @@ out dx,ax  ;((dx)+1,(dx))<-(ax)
 |-|-|-|-|-|-|-|-|
 |R|SL|EOI|0|0|L2|L1|L0|
 
+扩充(实验书p92)：
+
+**键盘的输入寄存器（PA，端口60h）**
+
+<table>
+<tr>
+<td>PB位7</td>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+
+<tr>
+<td>PB7=1</td>
+<td colspan="2">磁盘驱动器数</td>
+<td colspan="2">显示器类型</td>
+<td colspan="2">系统板上RAM数</td>
+<td>未用</td>
+<td>非磁盘系统</td>
+</tr>
+<tr>
+<td>PB7=0</td>
+<td colspan="8">键盘扫描码</td>
+</tr>
+</table>
+
+**控制寄存器（PB，端口61h）**
+
+<table>
+<tr>
+<tr><th>7</th>
+<td>PA选源，1=键盘应答</td></tr>
+<tr><th>6</th>
+<td>0=禁止键盘时钟</td></tr>
+<tr><th>5</th>
+<td>0=允许由扩充槽的错误信号</td></tr>
+<tr><th>4</th>
+<td>0=允许ram</td></tr>
+<tr><th>3</th>
+<td>0=启开盒式带马达</td></tr>
+<tr><th>2</th>
+<td>PC0~3选源</td></tr>
+<tr><th>1</th>
+<td><span style="color:red">扬声器脉冲门</span></td></tr>
+<tr><th>0</th>
+<td><span style="color:red">定时器2与门</span></td></tr>
+</table>
+
 #### 8.3.2 中断向量表(p293)
 
 |功能|预置|执行|返回|
@@ -628,6 +681,125 @@ myfunc endp
 ```
 
 <span style="color:red">p300的程序可能会被改成考试题</span>
+
+##### p301响铃程序
+
+只有铃响：
+
+```asm
+        mov    dx, 100h
+        in     al, 61h
+        and    al, 11111100b
+sound:  xor    al, 2
+        out    61h, al
+        mov    cx, 140h
+wait1:  loop   wait1
+        dec    dx
+        jne    sound
+```
+
+完整程序：
+
+```asm
+datarea segment
+    count   dw 1
+    msg     db 'The bell is ringing',0dh,0ah,'$'
+datarea ends
+prognam segment
+main proc far
+            assume cs:prognam,ds:datarea,es:datarea
+    start:  
+            push   ds
+            sub    ax,ax
+            push   ax
+            mov    ax,datarea
+            mov    ds,ax
+            mov    es,ax
+
+    ;保存旧的中断向量
+            mov    al,1ch                              ;1ch中断
+            mov    ah,35h                              ;取中断向量，保存在es:bx里
+            int    21h
+            push   bx
+            push   es
+
+    ;设置新的中断向量
+            push   ds
+            mov    dx,offset ring                      ;ring的偏移地址
+            mov    ax,seg ring                         ;ring的段地址
+            mov    ds,ax                               ;ds:dx=段地址:偏移地址
+            mov    al,1ch                              ;1ch中断
+            mov    ah,25h                              ;设置中断向量
+            int    21h
+            pop    ds
+
+    ;将21h端口的第0位清零,即打开定时器
+            in     al,21h
+            and    al,11111110b
+            out    21h,al
+            sti                                        ;设置中断标志，允许中断。
+
+    ;循环20000*30000次，因为次数太多一个寄存器装不下
+            mov    di,20000
+    delay:  
+            mov    si,30000
+    delay1: 
+            dec    si
+            jnz    delay1
+            dec    di
+            jnz    delay
+
+    ;重新设置回旧的中断向量
+            pop    dx
+            pop    ds
+            mov    al,1ch
+            mov    ah,25h
+            int    21h
+            ret
+main endp
+ring proc near
+            push   ds
+            push   ax
+            push   cx
+            push   dx
+
+            mov    ax,datarea
+            mov    ds,ax
+            sti
+
+            dec    count
+            jnz    exit
+    ;打印消息'The bell is ringing'
+            mov    dx,offset msg
+            mov    ah,09h
+            int    21h
+
+            mov    dx,100                              ;打开关闭的次数
+            in     al,61h
+            and    al,0fch                             ;61h端口的第0、1位清0，分别是定时器2和扬声器脉冲门
+    sound:  
+            xor    al,02                               ;61h端口的第1位转置，扬声器脉冲门
+            out    61h,al
+
+    ;等待，因为cpu比端口快的多
+            mov    cx,1400h
+    wait1:  
+            loop   wait1
+            
+            dec    dx
+            jne    sound
+            mov    count,182                           ;10s的铃响delay
+    exit:   
+            cli
+            pop    dx
+            pop    cx
+            pop    ax
+            pop    ds
+            iret
+ring endp
+prognam ends
+    end start
+```
 
 ---
 
