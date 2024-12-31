@@ -1,4 +1,5 @@
-2122年第4大题
+## 2122年第4大题
+```
 dseg	segment
 	tab		db		10 dup(?)
 	ten		db		10
@@ -83,3 +84,4 @@ exit:
 main	endp
 cseg	ends
 	end		start
+```
