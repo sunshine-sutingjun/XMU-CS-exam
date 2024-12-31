@@ -1,5 +1,5 @@
 ## 2122年第4大题
-```
+```asm
 dseg	segment
 	tab		db		10 dup(?)
 	ten		db		10
