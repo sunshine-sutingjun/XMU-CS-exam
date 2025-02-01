@@ -1,6 +1,6 @@
 # XMU-CS-exam 🎓
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ---
@@ -51,6 +51,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://www.xmu.edu.cn/"><img src="https://avatars.githubusercontent.com/u/110085579?v=4?s=100" width="100px;" alt="Misaka-xxw"/><br /><sub><b>Misaka-xxw</b></sub></a><br /><a href="#content-Misaka-xxw" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.xmu.edu.cn/"><img src="https://avatars.githubusercontent.com/u/140952695?v=4?s=100" width="100px;" alt="dty"/><br /><sub><b>dty</b></sub></a><br /><a href="#content-joana123123" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ZeyuWang-cyber"><img src="https://avatars.githubusercontent.com/u/58077809?v=4?s=100" width="100px;" alt="ZeyuWang"/><br /><sub><b>ZeyuWang</b></sub></a><br /><a href="#content-ZeyuWang-cyber" title="Content">🖋</a></td>
     </tr>
   </tbody>
   <tfoot>
