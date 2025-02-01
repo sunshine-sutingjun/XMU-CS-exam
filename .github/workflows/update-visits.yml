@@ -1,39 +1,36 @@
 name: Update Visits
 
 on:
-  push:
-    branches:
       - main
-  schedule:
-    - cron: '*/60 * * * *' # Runs every 60 minutes
 
 jobs:
   update-visits:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout:
+  push:
+    branches:
+      - main
 
-      - name: Increment visit counter
-        id: increment
-        run: |
-          if [ ! -f visits.txt ]; then echo "0" > visits.txt; fi
-          visits=$(cat visits.txt)
-          visits=$((visits + 1))
-          echo $visits > visits.txt
-          echo "::set-output name=visits::$visits"
+jobs:
+  update-visits repository
+        uses: actions/checkout@v:
+    runs-on: ubuntu-latest
+    steps:
+      - uses2
 
-      - name: Update README.md
-        run: |
-          visits=${{ steps.increment.outputs.visits }}
-          badge="![Visits](https://img.shields.io/badge/Visits-21980-blue)"
-          sed -i 's|!\[Visits\](https://img.shields.io/badge/Visits-.*-blue)|'"$badge"'|' README.md
+      - name: Set visits variable
+        run: echo: actions/checkout@v2
+      - name: Update Visits
+        run "visits=0" >> $GITHUB_ENV
 
-      - name: Commit changes
+      - name: Update badge in: |
+          visits="0"
+          echo $visits README
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add visits.txt README.md
-          git commit -m 'Update visits count'
-          git push
+          badge="![Visits]( > visits.txt
+          echo "visits=$visits" >>https://img.shields.io/badge/Visits-21980-blue)"
+          sed -i 's|!\[Visits\](https://img.shields.io/b $GITHUB_ENV
+      - name: Update README
+        run: |
+          badge="![Visits](https://img.shields.ioadge/Visits-.*-blue)|'$badge'|' README.md
