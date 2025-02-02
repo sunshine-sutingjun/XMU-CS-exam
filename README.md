@@ -6,9 +6,8 @@
     <img src="https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square" alt="All Contributors">
   </a>
   <!-- ALL-CONTRIBUTORS-BADGE:END -->
-  
   <a href="https://github.com/Junwu0615/How-To-Use-Clone-Shields">
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count_total&url=https://gist.githubusercontent.com/Junwu0615/edf53a0ed4984b18c977d252bb65a56e/raw/How-To-Use-Clone-Shields_clone.json&logo=github" alt="GitHub Clones">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count_total&url=https://gist.githubusercontent.com/Misaka-xxw/624869fa2abd4a4eaec5277bb3354c89/raw/XMU-CS-exam_clone.json&logo=github" alt="GitHub Clones">
   </a>
 </div>
 
