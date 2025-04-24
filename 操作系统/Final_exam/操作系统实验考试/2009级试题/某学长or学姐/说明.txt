@@ -1,0 +1,61 @@
+1、考试要用到实验1或者实验2里的dllist.*文件；
+2、threadtest1.cc\threadtest2.cc文件都是09的题目，都只需要加几句；
+                        1加的：
+                        if(which==0) which=1;
+  加的      
+                        else which=0;
+          加的
+                        for(n=1; n<=5; ++n)
+                      { // Remove previously inserted items and print them
+  
+                        currentThread->Yield();加的
+                        2加的：
+   			currentThread->Yield();
+			
+                        item = (int *)list->SortedRemove(k);
+			                        
+                        currentThread->Yield();
+3、我们这届的题目我没拷，就是创建两个线程（生产者），在加几句代码：
+                        void
+Consumer(int which)
+{
+        
+                         int *item;
+        
+                         int k;
+
+        
+                         for(k = 0; k< 10; k++) 
+                         {
+                
+                            item = (int *)list->SortedRemove(k);
+                                        
+                            while(item == NULL) 
+                            {
+                
+                               currentThread->Yield();
+  加的                                               
+                               item=(int*)list->SortedRemove(k); 加的
+                               .......
+                          void
+ThreadTest()
+{
+   
+                           DEBUG('t', "Entering ThreadTest1");
+   
+                            for(int i=0;i<2;i++)
+    {
+    加的      
+                            Thread *t=new Thread("");
+        加的
+                            t->Fork(Producer,i);
+     }
+     加的
+                            Consumer(0);                   加的
+                              
+//-----------------------------------------------------------------------
+
+                               // Write proper program statements here to Create two producer threads
+// and run itself as a consumer.
+                               //-----------------------------------------------------------------------
+}
