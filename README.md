@@ -2,10 +2,8 @@
 
 <div style="display: flex; align-items: center; gap: 10px;">
   <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-  <a href="#contributors-">
-    <img src="https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square" alt="All Contributors">
-  </a>
-  <!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <a href="https://github.com/Junwu0615/How-To-Use-Clone-Shields">
     <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count_total&url=https://gist.githubusercontent.com/Misaka-xxw/624869fa2abd4a4eaec5277bb3354c89/raw/XMU-CS-exam_clone.json&logo=github" alt="GitHub Clones">
   </a>
@@ -73,6 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ZeyuWang-cyber"><img src="https://avatars.githubusercontent.com/u/58077809?v=4?s=100" width="100px;" alt="ZeyuWang"/><br /><sub><b>ZeyuWang</b></sub></a><br /><a href="#content-ZeyuWang-cyber" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/miaodanielwww"><img src="https://avatars.githubusercontent.com/u/175998763?v=4?s=100" width="100px;" alt="miaodanielwww"/><br /><sub><b>miaodanielwww</b></sub></a><br /><a href="#content-miaodanielwww" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cythjyy"><img src="https://avatars.githubusercontent.com/u/153792821?v=4?s=100" width="100px;" alt="cythjyy"/><br /><sub><b>cythjyy</b></sub></a><br /><a href="#content-cythjyy" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dawn-Brilliance"><img src="https://avatars.githubusercontent.com/u/186166693?v=4?s=100" width="100px;" alt="Dawn-Brilliance"/><br /><sub><b>Dawn-Brilliance</b></sub></a><br /><a href="#content-Dawn-Brilliance" title="Content">🖋</a></td>
     </tr>
   </tbody>
   <tfoot>
