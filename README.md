@@ -14,6 +14,10 @@
 ~~本项目旨在为厦大计科同学提供生存指南~~
 本项目旨在为同学们提供一个共享和交流作业代码、试卷答案的平台，帮助大家共同进步。(๑•̀ㅂ•́)و✧
 
+推荐仓库：
+https://github.com/sunshine-sutingjun/XMU-CS23-Learning-Resources
+https://github.com/yj-w-03/XMU-CS-junior-year
+
 ---
 
 ## ✏️To do list
