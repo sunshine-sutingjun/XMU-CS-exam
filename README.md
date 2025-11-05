@@ -29,6 +29,8 @@
 - 学长的权威实验报告与学习笔记，涵盖计网、Unix、计算方法等多门课程，内容详实：
   https://www.cnblogs.com/hankeke303
 
+- 推荐网课：重生之我在b站上大学
+  https://blog.csdn.net/aaaa_a133/article/details/142899493?spm=1001.2014.3001.5502
 ---
 
 ## ✏️To do list
