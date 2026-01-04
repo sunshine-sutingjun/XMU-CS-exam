@@ -1,8 +1,5 @@
 # XMU-CS-exam 🎓
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)]()
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)]()
 [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count_total&url=https://gist.githubusercontent.com/Misaka-xxw/624869fa2abd4a4eaec5277bb3354c89/raw/XMU-CS-exam_clone.json&logo=github)]()
 [![GitHub Views](https://views.whatilearened.today/views/github/Misaka-xxw/XMU-CS-exam.svg)]()
 
@@ -22,19 +19,42 @@
 - 学姐整理的大三年级超全仓库，作业答案与示例代码都很齐全，复习/参考好帮手：
   https://github.com/yj-w-03/XMU-CS-junior-year
 
+- 汇编语言资料库，包括20~22级实验考试真题：https://github.com/wegret/XMU_Assembly
+
 **推荐网站** 📚✨：
 
 - 学长的权威实验报告与学习笔记，涵盖计网、Unix、计算方法等多门课程，内容详实：
   https://www.cnblogs.com/hankeke303
 
+- 推荐网课：重生之我在b站上大学
+  https://blog.csdn.net/aaaa_a133/article/details/142899493?spm=1001.2014.3001.5502
+
+- 厦信薪火：厦大信息学子就业经验分享
+  https://ximoffer.cn/
+
 ---
 
-## ✏️To do list
-
-- [ ] 汇编原试卷
-- [ ] 推荐网址
-- [x] Unix期中期末试卷及其答案
-- [x] 计网实验报告
+## ✏️仓库目录
+### 大一上
+[C语言](C语言)
+### 大一下
+[概率统计(A)](概率统计(A)/)
+[概率统计Ⅰ(不是信院的)](概率统计Ⅰ(不是信院的))
+[电路原理](电路原理)
+### 大三上
+[unix](unix)
+[汇编](汇编)
+[计算机网络与通信](计算机网络与通信)
+[计算机组成原理](计算机组成原理)
+[马原](马原)
+[嵌入式](嵌入式)
+### 大三下
+[编译原理](编译原理)
+[操作系统](操作系统)
+[计算机系统结构](计算机系统结构)
+[数据库](数据库)
+### 大四上
+[软件工程](软件工程)
 
 ## 🤝如何贡献
 
@@ -79,6 +99,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/miaodanielwww"><img src="https://avatars.githubusercontent.com/u/175998763?v=4?s=100" width="100px;" alt="miaodanielwww"/><br /><sub><b>miaodanielwww</b></sub></a><br /><a href="#content-miaodanielwww" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cythjyy"><img src="https://avatars.githubusercontent.com/u/153792821?v=4?s=100" width="100px;" alt="cythjyy"/><br /><sub><b>cythjyy</b></sub></a><br /><a href="#content-cythjyy" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dawn-Brilliance"><img src="https://avatars.githubusercontent.com/u/186166693?v=4?s=100" width="100px;" alt="Dawn-Brilliance"/><br /><sub><b>Dawn-Brilliance</b></sub></a><br /><a href="#content-Dawn-Brilliance" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/CSmedicos"><img src="https://avatars.githubusercontent.com/u/147293017?v=4?s=100" width="100px;" alt="CSmedicos"/><br /><sub><b>CSmedicos</b></sub></a><br /><a href="#content-CSmedicos" title="Content">🖋</a></td>
     </tr>
   </tbody>
   <tfoot>
